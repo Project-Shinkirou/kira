@@ -2,15 +2,15 @@
 
 - Fix typo in docs (thanks @ChangeCaps!)
 - Update rtrb to v0.4.0
+- Add explicit `CpalBackend::stop_and_join` for native embedding owners. It
+  stops device playback and joins the stream-manager thread, including worker
+  resource destruction. Call it from the manager owner, never an audio callback.
+- Keep ordinary backend/track/sound handle Drop nonblocking. Join the
+  stream-manager thread on startup failure and report worker panics.
 
 # v0.12.4 - August 27, 2026
 
 - Allow creating `StaticSoundData` from non-`'static` sources (thanks @a1phyr!)
-
-# v0.12.3 - August 9, 2026
-
-- When seeking a streaming sound while paused, don't play audio from the previous
-position after resuming (thanks @nnmarcoo!)
 
 # v0.12.2 - July 16, 2026
 
